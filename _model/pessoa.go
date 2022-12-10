@@ -1,7 +1,7 @@
-package model
+package _model
 
 type Pessoa struct {
-	Id       string
-	Nome     string
-	Endereco string
+	Id       string `json:"id"`
+	Nome     string `json:"nome"`
+	Endereco string `json:"endereco"`
 }

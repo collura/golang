@@ -1,9 +1,10 @@
 package controller
 
 import (
+	"encoding/json"
+	"github/collura/_model"
+	"io"
 	"net/http"
-
-	"github.com/golang-jwt/jwt"
 )
 
 func PessoaControllerInit() {
@@ -11,13 +12,8 @@ func PessoaControllerInit() {
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	//	id := r.URL.Query().Get("id")
-	tokenStr := r.Header.Get("Authorization")
-	print(tokenStr)
-	token, _ := jwt.Parse(tokenStr, nil)
-	if token == nil {
-		return
-	}
-	claims, _ := token.Claims.(jwt.MapClaims)
-	print(claims)
+	id := r.URL.Query().Get("id")
+	pessoa := _model.Pessoa{Id: id, Nome: "Betto", Endereco: "Rua Franscisco de Magalhães, 306"}
+	json, _ := json.Marshal(pessoa)
+	io.WriteString(w, string(json))
 }
