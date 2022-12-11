@@ -1,5 +1,4 @@
 FROM golang
 
-
-COPY application /
-ENTRYPOINT "/application"
+COPY ./application /srv
+ENTRYPOINT "/srv/application"

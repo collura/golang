@@ -4,8 +4,6 @@ import (
 	"github/collura/controller"
 	"log"
 	"net/http"
-
-	"github.com/golang-jwt/jwt/v4"
 )
 
 func main() {
@@ -15,5 +13,4 @@ func main() {
 
 type Claims struct {
 	Username string `json:"username"`
-	jwt.RegisteredClaims
 }
