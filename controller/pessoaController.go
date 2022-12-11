@@ -7,11 +7,11 @@ import (
 	"strconv"
 )
 
-func PessoaControllerInit() {
-	http.HandleFunc("/", handler)
+func init() {
+	println("INIT")
 }
 
-func handler(w http.ResponseWriter, r *http.Request) {
+func HandlerPessoa(w http.ResponseWriter, r *http.Request) {
 	id := r.URL.Query().Get("id")
 	val, _ := strconv.ParseInt(id, 0, 8)
 
